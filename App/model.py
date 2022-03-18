@@ -272,7 +272,8 @@ def addBookTitle(catalog, title):
     """
     Completar la descripcion de addBookTitle
     """
-    
+    titulo = title["original_title"]
+    mp.put(catalog["titles"], titulo, title)
     
 
 # ==============================
@@ -318,7 +319,7 @@ def getBookByTitle(catalog, title):
     """
     titulos = mp.get(catalog["titles"], title)
     if titulos:
-        return me.getValue(title)["titles"]
+        return me.getValue(titulos)
     return None
 
 

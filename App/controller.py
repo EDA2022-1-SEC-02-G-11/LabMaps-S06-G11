@@ -68,6 +68,7 @@ def loadBooks(ctrlr):
     input_file = csv.DictReader(open(booksfile, encoding='utf-8'))
     for book in input_file:
         model.addBook(ctrlr['model'], book)
+        model.addBookTitle(ctrlr["model"], book)
 
 
 def loadTags(ctrlr):

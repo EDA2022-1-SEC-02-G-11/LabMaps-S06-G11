@@ -114,7 +114,7 @@ def printBooksbyTitle(books):
     """
     Completar la descripcion de printBooksbyTitle
     """
-    pass
+    print("Libros encontrados: \n"+str(books)+"")
 
 # Menu de opciones
 
@@ -165,7 +165,7 @@ while True:
     elif int(inputs[0]) == 6:
         name = input("Escriba el nombre del libro: ")
         book = controller.getBooksByTittle(ctrlr, name)
-        #printBookByName(book)
+        printBooksbyTitle(book)
 
     elif int(inputs[0]) == 0:
         break
