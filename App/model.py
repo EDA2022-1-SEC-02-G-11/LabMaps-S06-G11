@@ -73,7 +73,7 @@ def newCatalog():
     """
     A continuacion se crean indices por diferentes criterios
     para llegar a la informacion consultada.  Estos indices no
-    replican informacion, solo referencian los libros de la lista
+    replican informacion, solo referencian los libros de la listap
     creada en el paso anterior.
     """
 
