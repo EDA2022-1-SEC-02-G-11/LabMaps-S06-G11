@@ -126,8 +126,7 @@ def printMenu():
     print("3- Consultar los libros de un año")
     print("4- Consultar los libros de un autor")
     print("5- Consultar los Libros por etiqueta")
-    # TODO modificaciones para el laboratorio 6
-    # Agregar opcion para el nuevo indice
+    print("6- Consultar libro por su titulo")
     print("0- Salir")
 
 
@@ -164,8 +163,9 @@ while True:
         printBooksbyTag(books)
 
     elif int(inputs[0]) == 6:
-        # TODO modificaciones para el laboratorio 6
-        pass
+        name = input("Escriba el nombre del libro: ")
+        book = controller.getBooksByTittle(ctrlr, name)
+        #printBookByName(book)
 
     elif int(inputs[0]) == 0:
         break

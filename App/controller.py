@@ -23,6 +23,7 @@
  * Dario Correal - Version inicial
  """
 
+from statistics import mode
 import config as cf
 import model
 import csv
@@ -158,10 +159,10 @@ def getBooksYear(ctrlr, year):
 def getBooksByTittle(ctrlr, title):
     # TODO modificaciones para el laboratorio 6
     """
-    Completar la descripcion de getBooksByTittle
+    Retorna el libro segun su titulo.
     """
-    pass
-
+    book = model.getBookByTitle(ctrlr["model"], title)
+    return book
 
 def titlesSize(ctrlr):
     # TODO modificaciones para el laboratorio 6

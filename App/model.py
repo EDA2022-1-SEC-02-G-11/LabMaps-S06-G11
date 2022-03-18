@@ -25,6 +25,8 @@
  """
 
 
+import re
+from webbrowser import get
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.ADT import map as mp
@@ -117,6 +119,10 @@ def newCatalog():
     Este indice crea un map cuya llave es el titulo del libro
     La columna 'title' del archivo books.csv
     """
+    catalog["titles"] = mp.newMap(40,
+                                 maptype="PROBING",
+                                 loadfactor=0.5,
+                                 comparefunction= compareTitles)
 
     return catalog
 
@@ -266,8 +272,8 @@ def addBookTitle(catalog, title):
     """
     Completar la descripcion de addBookTitle
     """
-    pass
-
+    
+    
 
 # ==============================
 # Funciones de consulta
@@ -308,9 +314,13 @@ def getBooksByYear(catalog, year):
 def getBookByTitle(catalog, title):
     # TODO modificaciones para el laboratorio 6
     """
-    Completar la descripcion de getBookByTitle
+    Retorna los libros por su titulo
     """
-    pass
+    titulos = mp.get(catalog["titles"], title)
+    if titulos:
+        return me.getValue(title)["titles"]
+    return None
+
 
 
 def booksSize(catalog):
@@ -337,9 +347,9 @@ def tagsSize(catalog):
 def titlesSize(catalog):
     # TODO modificaciones para el laboratorio 6
     """
-    Completar la descripcion de titlesSize
+    Numero de titulos en el catalogo
     """
-    pass
+    return mp.size(catalog["titles"])
 
 
 # ==============================
@@ -431,4 +441,7 @@ def compareTitles(title1, title2):
     """
     Completar la descripcion de compareTitles
     """
-    pass
+
+    if (title1 == title2):
+        return 1
+    return 0 
